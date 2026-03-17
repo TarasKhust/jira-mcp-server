@@ -32,11 +32,11 @@
   "license": "GPL-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taraskhust/jira-mcp-server.git"
+    "url": "git+https://github.com/TarasKhust/jira-mcp-server.git"
   },
-  "homepage": "https://github.com/taraskhust/jira-mcp-server#readme",
+  "homepage": "https://github.com/TarasKhust/jira-mcp-server#readme",
   "bugs": {
-    "url": "https://github.com/taraskhust/jira-mcp-server/issues"
+    "url": "https://github.com/TarasKhust/jira-mcp-server/issues"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",

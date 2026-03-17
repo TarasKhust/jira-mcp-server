@@ -22,7 +22,7 @@ jira-mcp-server
 ### From source
 
 ```bash
-git clone https://github.com/taraskhust/jira-mcp-server.git
+git clone https://github.com/TarasKhust/jira-mcp-server.git
 cd jira-mcp-server
 npm install
 npm run build
