@@ -1,0 +1,56 @@
+{
+  "name": "@taraskhust/jira-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for Jira and Confluence integration",
+  "main": "dist/server.js",
+  "bin": {
+    "jira-mcp-server": "dist/server.js"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "LICENSE.txt",
+    "README.md",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "NODE_NO_WARNINGS=1 node --loader ts-node/esm src/server.ts",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "mcp",
+    "jira",
+    "confluence",
+    "atlassian",
+    "model-context-protocol",
+    "ai",
+    "llm"
+  ],
+  "license": "GPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taraskhust/jira-mcp-server.git"
+  },
+  "homepage": "https://github.com/taraskhust/jira-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/taraskhust/jira-mcp-server/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "axios": "^1.8.0",
+    "dotenv": "^16.4.7",
+    "jira.js": "^4.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.17.30",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

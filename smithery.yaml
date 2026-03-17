@@ -1,0 +1,58 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - jiraHost
+      - jiraEmail
+      - jiraApiToken
+    properties:
+      jiraHost:
+        type: string
+        description: Jira host URL (e.g., https://your-domain.atlassian.net)
+      jiraEmail:
+        type: string
+        description: Jira account email
+      jiraApiToken:
+        type: string
+        description: Jira API token
+      port:
+        type: number
+        default: 3000
+        description: Port on which the MCP server listens
+      confluenceHost:
+        type: string
+        description: Confluence/KB host URL (e.g., https://kb.epam.com). Required for KB tools.
+      confluenceEmail:
+        type: string
+        description: Confluence account email
+      confluenceApiToken:
+        type: string
+        description: Confluence API token
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['dist/server.js'],
+      env: {
+        JIRA_HOST: config.jiraHost,
+        JIRA_EMAIL: config.jiraEmail,
+        JIRA_API_TOKEN: config.jiraApiToken,
+        PORT: config.port?.toString() || '3000',
+        CONFLUENCE_HOST: config.confluenceHost || '',
+        CONFLUENCE_EMAIL: config.confluenceEmail || '',
+        CONFLUENCE_API_TOKEN: config.confluenceApiToken || ''
+      }
+    })
+  exampleConfig:
+    jiraHost: https://example.atlassian.net
+    jiraEmail: <your_jira_email_here>
+    jiraApiToken: <your_jira_api_token_here>
+    port: 3000
+    confluenceHost: https://your-confluence-instance.com
+    confluenceEmail: <your_confluence_email_here>
+    confluenceApiToken: <your_confluence_api_token_here>
