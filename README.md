@@ -51,7 +51,7 @@ CONFLUENCE_API_TOKEN=your-api-token
 
 ### MCP Client Configuration
 
-Add to your MCP client config (e.g., Claude Desktop `claude_desktop_config.json`):
+Add to your MCP client config:
 
 ```json
 {
@@ -160,4 +160,4 @@ For Jira Server/Data Center, use your password or a personal access token.
 
 GPL-2.0 - See [LICENSE.txt](LICENSE.txt) for details.
 
-Based on [jira-mcp-server](https://github.com/kornbed/jira-mcp-server) by kornbed.
+
