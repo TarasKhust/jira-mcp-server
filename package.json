@@ -1,5 +1,5 @@
 {
-  "name": "@taraskhust/jira-mcp-server",
+  "name": "@tarasrushchak/jira-mcp-server",
   "version": "0.1.0",
   "description": "MCP server for Jira and Confluence integration",
   "main": "dist/server.js",

@@ -1,4 +1,4 @@
-# @taraskhust/jira-mcp-server
+# @tarasrushchak/jira-mcp-server
 
 MCP (Model Context Protocol) server for Jira and Confluence integration. Provides 32 tools for managing Jira tickets, sprints, boards, worklogs, and Confluence pages through any MCP-compatible client.
 
@@ -9,13 +9,13 @@ Supports both **Jira Cloud** and **Jira Server/Data Center**.
 ### Via npm (recommended)
 
 ```bash
-npx @taraskhust/jira-mcp-server
+npx @tarasrushchak/jira-mcp-server
 ```
 
 ### Via npm global install
 
 ```bash
-npm install -g @taraskhust/jira-mcp-server
+npm install -g @tarasrushchak/jira-mcp-server
 jira-mcp-server
 ```
 
@@ -58,7 +58,7 @@ Add to your MCP client config (e.g., Claude Desktop `claude_desktop_config.json`
   "mcpServers": {
     "jira": {
       "command": "npx",
-      "args": ["-y", "@taraskhust/jira-mcp-server"],
+      "args": ["-y", "@tarasrushchak/jira-mcp-server"],
       "env": {
         "JIRA_HOST": "https://your-domain.atlassian.net",
         "JIRA_EMAIL": "your-email@example.com",
