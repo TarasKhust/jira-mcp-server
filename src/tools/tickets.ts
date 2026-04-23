@@ -28,32 +28,15 @@ export function registerTicketTools(server: McpServer): void {
 
         const jiraApiClient = createJiraApiClient();
 
-        if (isCloud()) {
-          try {
-            const response = await jiraApiClient.post('/search/jql', {
-              jql: query,
-              maxResults: 100,
-            });
-            tickets = {
-              issues: response.data.values || [],
-              total: response.data.total || (response.data.values ? response.data.values.length : 0),
-            };
-          } catch (cloudError: any) {
-            console.error('Cloud API v3 error:', cloudError.response?.data || cloudError.message);
-            const errorDetails = cloudError.response?.data || cloudError.message;
-            const errorMsg = typeof errorDetails === 'string' ? errorDetails : JSON.stringify(errorDetails);
-            throw new Error(`Jira Cloud API v3 error: ${errorMsg}`);
-          }
-        } else {
-          try {
-            tickets = await jira.issueSearch.searchForIssuesUsingJql({ jql: query });
-          } catch (jiraJsError: any) {
-            const response = await jiraApiClient.get('/search', {
-              params: { jql: query },
-            });
-            tickets = response.data;
-          }
-        }
+        const response = await jiraApiClient.post('/search/jql', {
+          jql: query,
+          maxResults: 100,
+          fields: ['summary', 'status', 'issuetype', 'priority', 'assignee'],
+        });
+        tickets = {
+          issues: response.data.issues || response.data.values || [],
+          total: response.data.total || 0,
+        };
 
         if (!tickets.issues || tickets.issues.length === 0) {
           return {
